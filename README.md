@@ -1,7 +1,7 @@
 # ✈️ Aircraft Engineer Quiz Bot (Telegram)
 
-A private Telegram group bot that quizzes probationary Aircraft Maintenance Engineers (AMEs)
-using Anthropic Claude + a RAG system built on your actual maintenance manuals.
+A Telegram group bot that quizzes probationary Aircraft Maintenance Engineers (AMEs)
+using Anthropic Claude + a custom RAG pipeline built on your actual maintenance manuals.
 
 ---
 
