@@ -1,175 +1,226 @@
-# ✈️ Aircraft Engineer Quiz Bot (Telegram)
+# ✈️ AeroQuiz - AI-Powered Training Platform for Aircraft Engineers
 
-A Telegram group bot that quizzes probationary Aircraft Maintenance Engineers (AMEs)
-using Anthropic Claude + a custom RAG pipeline built on your actual maintenance manuals.
+> **Built for the Anthropic x Temasek Hackathon** | Powered by **Claude Sonnet 4.5** & **GenSpark Claw**
 
----
-
-## Architecture
-
-```
-Aircraft Manuals (PDFs)
-        │
-        ▼
-  [rag/ingest.py]          ← Chunks + embeds PDFs into ChromaDB
-        │
-        ▼
-   ChromaDB (local)        ← Persistent vector store
-        │
-        ▼
-  [rag/retriever.py]       ← Semantic search on manual content
-        │
-        ▼
-  [quiz/generator.py]      ← Anthropic Claude generates quiz questions
-        │
-        ▼
-  [quiz/session.py]        ← Per-user session state + scoreboard
-        │
-        ▼
-    [bot/bot.py]           ← Telegram bot logic + formatting
-        │
-        ▼
-    [bot/app.py]           ← python-telegram-bot polling runner
-        │
-        ▼
-  Telegram Private Group   ← Sandboxed via TELEGRAM_ALLOWED_CHAT_ID
-```
+<p align="center">
+  <img src="https://img.shields.io/badge/Anthropic-Claude%20Sonnet%204.5-blueviolet?style=for-the-badge" alt="Claude Sonnet 4.5"/>
+  <img src="https://img.shields.io/badge/GenSpark-Claw-orange?style=for-the-badge" alt="GenSpark Claw"/>
+  <img src="https://img.shields.io/badge/Platform-Telegram-blue?style=for-the-badge" alt="Telegram"/>
+  <img src="https://img.shields.io/badge/Industry-Aviation%20MRO-green?style=for-the-badge" alt="Aviation MRO"/>
+</p>
 
 ---
 
-## Quick Start
+## 🎯 Problem Statement
 
-### 1. Setup environment
+Singapore Airlines' aircraft maintenance engineers face a critical challenge: **rapidly upskilling probationary engineers** while ensuring they have deep knowledge of complex aircraft systems, safety protocols, and maintenance procedures. Traditional training methods are time-consuming and don't scale effectively.
+
+---
+
+## 💡 Our Solution
+
+**AeroQuiz** is an intelligent Telegram-based quiz platform that:
+
+- 🤖 **Leverages GenSpark Claw** to seamlessly connect with Telegram, intelligently handle user queries, and provide real-time conversational interactions
+- 🧠 **Powered by Claude Sonnet 4.5** for intelligent question generation, answer evaluation, and detailed explanations for incorrect responses
+- 📚 **RAG Pipeline** that ingests aircraft PDF manuals and technical documentation to generate contextually relevant questions
+- ⚡ **Expedites certification** by enabling trainees to learn faster through active recall and instant feedback
+
+---
+
+## 🌟 Key Features
+
+### For Engineers (Trainees)
+- 📱 **Telegram-Native** - Quiz anytime, anywhere directly in Telegram
+- 🎯 **Adaptive Quizzing** - Questions generated from actual maintenance manuals
+- 💬 **Intelligent Feedback** - Wrong answers receive detailed explanations powered by Claude
+- 🏆 **Leaderboard** - Track progress and compete with peers
+- 📊 **Topic-Specific Training** - Focus on hydraulics, avionics, engines, and more
+
+### For Admins
+- 📤 **Easy Document Upload** - Simply upload PDF manuals
+- 🔄 **Automatic Ingestion** - GenSpark Claw processes and indexes documents
+- 🎚️ **Configurable Difficulty** - Set quiz difficulty levels
+- 📈 **Progress Tracking** - Monitor trainee performance
+
+---
+
+## 🚀 Vision: AI MRO Ecosystem
+
+AeroQuiz is designed to be the foundation of a comprehensive **AI-powered MRO (Maintenance, Repair, and Overhaul) Ecosystem**:
+
+| Module | Description |
+|--------|-------------|
+| 📖 **Tech Log Knowledgebase** | Beyond OEM manuals - integrated technical logs and historical data |
+| 🔧 **Procurement & Parts** | Intelligent part identification and warehouse location |
+| 📦 **Inventory Optimization** | Smart inventory placement and stock management |
+| 👥 **Workforce Matching** | AI-driven assignment of best-fit engineers to tasks |
+| 📋 **Customer Orders** | Handle customer complaints and service requests |
+| ✅ **Quality Assurance** | Quality checks and delivery verification |
+| ⏱️ **TAT & Safety** | Turnaround time optimization linked with safety compliance |
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     ADMIN WORKFLOW                               │
+│  Aircraft Manuals (PDFs) → GenSpark Claw → Document Ingestion   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      RAG PIPELINE                                │
+│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐      │
+│  │ rag/ingest.py│ → │   ChromaDB   │ → │rag/retriever │      │
+│  │ (Chunking)   │    │ (Vector DB)  │    │  (Search)    │      │
+│  └──────────────┘    └──────────────┘    └──────────────┘      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   INTELLIGENCE LAYER                             │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │              Claude Sonnet 4.5 (Anthropic API)            │   │
+│  │  • Question Generation    • Answer Evaluation             │   │
+│  │  • Explanation Generation • Adaptive Difficulty           │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   GENSPARK CLAW INTEGRATION                      │
+│  • Telegram Bot Connection    • Intelligent Query Handling      │
+│  • Natural Language Interface • Real-time Response Management   │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      TELEGRAM BOT                                │
+│  Singapore Airlines Engineers ←→ Private Telegram Group         │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|-----------|------------|
+| **LLM** | Claude Sonnet 4.5 (Anthropic) |
+| **Orchestration** | GenSpark Claw |
+| **Vector Database** | ChromaDB |
+| **Bot Platform** | Telegram (python-telegram-bot) |
+| **Backend** | Python |
+| **Embeddings** | Local / OpenAI |
+
+---
+
+## 📱 Bot Commands
+
+| Command | Description |
+|---------|-------------|
+| `/quiz` | Start a random quiz from all manuals |
+| `/quiz [topic]` | Quiz on a specific topic (e.g., `/quiz hydraulics`) |
+| `/leaderboard` | View top scores |
+| `/quit` | Cancel current quiz |
+| `/help` | Show available commands |
+
+---
+
+## 🚀 Quick Start
+
+### 1. Setup Environment
 ```bash
-cd aircraft-quiz-bot
+cd AeroQuiz
 bash scripts/setup.sh
 ```
 
-### 2. Create your Telegram bot
-1. Open Telegram → search **@BotFather**
-2. Send `/newbot` → follow prompts → copy the token
-3. Edit `.env`:
-   ```
-   TELEGRAM_BOT_TOKEN=123456789:AAF...your-token-here
-   ANTHROPIC_API_KEY=sk-ant-your-key-here
-   ```
-
-### 3. Get your private group/channel chat ID
-1. Add **@userinfobot** to your private group
-2. It will reply with the group's chat ID (a negative number like `-1001234567890`)
-3. Edit `.env`:
-   ```
-   TELEGRAM_ALLOWED_CHAT_ID=-1001234567890
-   ```
-4. Add your bot to the private group and make it an **admin**
-
-### 4. Add manuals
+### 2. Configure Environment Variables
 ```bash
-cp /path/to/your-manual.pdf manuals/
+# Create .env file with:
+TELEGRAM_BOT_TOKEN=your-telegram-bot-token
+ANTHROPIC_API_KEY=your-anthropic-api-key
+TELEGRAM_ALLOWED_CHAT_ID=your-private-group-id
 ```
 
-### 5. Ingest manuals into vector store
+### 3. Add Training Manuals
+```bash
+cp /path/to/aircraft-manuals/*.pdf manuals/
+```
+
+### 4. Ingest Documents
 ```bash
 source .venv/bin/activate
 python rag/ingest.py
 ```
 
-### 6. Test end-to-end (before Telegram)
+### 5. Run the Bot
 ```bash
-bash scripts/ingest_and_test.sh
-```
-
-### 7. Run the bot
-```bash
-source .venv/bin/activate
 python -m bot.app
 ```
 
-The bot uses **polling** — no public URL or webhook setup needed.
-
 ---
 
-## Bot Commands (in Telegram)
-
-| Command | Description |
-|---|---|
-| `/quiz` | Start a random quiz from all manuals |
-| `/quiz hydraulics` | Quiz on a specific topic |
-| `/leaderboard` | See top scores |
-| `/quit` | Cancel current quiz |
-| `/help` | Show commands |
-
-MCQ answers are tapped on a reply keyboard (A / B / C / D).
-
----
-
-## Sandboxing
-
-Set `TELEGRAM_ALLOWED_CHAT_ID` in `.env` to your private group's chat ID.
-The bot will silently ignore all messages from any other chat — so even if
-someone finds the bot username, they can't interact with it.
-
----
-
-## Configuration (`.env`)
-
-| Variable | Default | Description |
-|---|---|---|
-| `TELEGRAM_BOT_TOKEN` | *(required)* | From @BotFather |
-| `TELEGRAM_ALLOWED_CHAT_ID` | *(recommended)* | Lock bot to one private group |
-| `ANTHROPIC_API_KEY` | *(required)* | Your Anthropic API key |
-| `ANTHROPIC_MODEL` | `claude-3-5-sonnet-20241022` | Claude model |
-| `EMBEDDING_BACKEND` | `local` | `local` (no key) or `openai` |
-| `QUIZ_NUM_QUESTIONS` | `5` | Questions per quiz |
-| `QUIZ_DIFFICULTY` | `mixed` | `easy` / `medium` / `hard` / `mixed` |
-| `QUIZ_FORMAT` | `mcq` | `mcq` / `short_answer` |
-| `CHROMA_PERSIST_DIR` | `./data/chromadb` | Vector store path |
-
----
-
-## Re-ingesting Manuals
-
-```bash
-python rag/ingest.py                 # add new, skip existing
-python rag/ingest.py --reset         # wipe and re-ingest everything
-python rag/ingest.py --file new.pdf  # single file only
-```
-
----
-
-## File Structure
+## 📁 Project Structure
 
 ```
-aircraft-quiz-bot/
-├── .env                    ← Config + secrets (never commit)
-├── requirements.txt
-├── README.md
-├── manuals/                ← Drop PDFs here
-├── rag/
-│   ├── ingest.py           ← PDF → ChromaDB
-│   └── retriever.py        ← Semantic search
-├── quiz/
-│   ├── generator.py        ← Anthropic quiz generation + evaluation
-│   └── session.py          ← Per-user state + scoreboard
+AeroQuiz/
 ├── bot/
-│   ├── bot.py              ← Telegram bot handlers
-│   └── app.py              ← Polling runner entry point
+│   ├── bot.py              # Telegram bot handlers
+│   └── app.py              # Polling runner entry point
+├── quiz/
+│   ├── generator.py        # Claude-powered quiz generation
+│   └── session.py          # Per-user session state
+├── rag/
+│   ├── ingest.py           # PDF → ChromaDB ingestion
+│   └── retriever.py        # Semantic search
+├── ui/                     # Admin interface
+├── scripts/
+│   ├── setup.sh
+│   └── ingest_and_test.sh
 ├── data/
-│   ├── chromadb/           ← Vector store (auto-created)
-│   ├── sessions/           ← Active quiz states (auto-created)
-│   └── scoreboard.json     ← All-time scores
-├── logs/
-│   └── bot.log
-└── scripts/
-    ├── setup.sh
-    └── ingest_and_test.sh
+│   ├── chromadb/           # Vector store
+│   └── scoreboard.json     # Leaderboard data
+└── manuals/                # Drop PDFs here
 ```
 
 ---
 
-## Security Notes
+## 🔒 Security
 
-- `.env` is in `.gitignore` — never commit it
-- `TELEGRAM_ALLOWED_CHAT_ID` sandboxes the bot to your private group only
-- No webhook = no public URL exposed
-- Scores stored locally; only Telegram user ID + display name are persisted
+- Private Telegram group sandboxing via `TELEGRAM_ALLOWED_CHAT_ID`
+- No public webhooks - polling-based architecture
+- API keys secured in `.env` (never committed)
+- Local data storage for scores and sessions
+
+---
+
+## 👥 Team
+
+| Name | Role |
+|------|------|
+| **Sanju** | Developer |
+| **Sahil Sharma** | Developer |
+
+---
+
+## 🏆 Hackathon
+
+<p align="center">
+  <strong>Anthropic x Temasek Hackathon</strong><br/>
+  <em>Organized by GenSpark, Anthropic & Temasek</em>
+</p>
+
+---
+
+## 📄 License
+
+This project was built for the Anthropic x Temasek Hackathon.
+
+---
+
+<p align="center">
+  Made with ❤️ for Singapore Airlines Engineering
+</p>
