@@ -32,7 +32,7 @@ Singapore Airlines' aircraft maintenance engineers face a critical challenge: **
 - 🧠 **Powered by Claude Sonnet 4.5** for intelligent question generation, answer evaluation, and detailed explanations for incorrect responses
 - 📚 **RAG Pipeline** that ingests aircraft PDF manuals and technical documentation to generate contextually relevant questions
 - ⚡ **Expedites certification** by enabling trainees to learn faster through active recall and instant feedback
-Link to Demo: https://youtu.be/ysos1zIAldw
+Link to Demo: https://www.youtube.com/watch?v=aGdeoUOQdcU
 
 ---
 
