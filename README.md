@@ -29,6 +29,19 @@ Singapore Airlines' aircraft maintenance engineers face a critical challenge: **
 - 📚 **RAG Pipeline** that ingests aircraft PDF manuals and technical documentation to generate contextually relevant questions
 - ⚡ **Expedites certification** by enabling trainees to learn faster through active recall and instant feedback
 Link to Demo: https://youtu.be/ysos1zIAldw
+
+---
+
+## 💰 Business Value & Impact
+
+| Impact Area | Value Proposition |
+|-------------|-------------------|
+| ✈️ **Aircraft Safety** | Better trained engineers = safer aircraft. At the heart of aviation, this directly affects **lives of passengers and crew** |
+| 🛑 **AOG Prevention** | Aircraft on Ground costs **$150,000+ per day** in lost revenue. Faster-certified engineers reduce unplanned downtime |
+| 👨‍🔧 **Talent Pipeline** | Singapore's 6M population creates an engineer shortage. AeroQuiz accelerates training to **reduce dependency on overseas hiring** |
+| 🎓 **Faster Certification** | Probationary engineers face **2-5 year certification timelines**. Active recall training can significantly accelerate this journey |
+| ⏱️ **Improved TAT** | Turnaround Time optimization means **170+ SIA aircraft** spend more time flying, less time in maintenance |
+
 ---
 
 ## 🌟 Key Features
