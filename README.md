@@ -25,7 +25,7 @@ Singapore Airlines' aircraft maintenance engineers face a critical challenge: **
 
 ## 💡 Our Solution
 
-**AeroQuiz** is an intelligent Telegram-based quiz platform that:
+**AeroQuiz** ([@aeroquiz_bot](https://t.me/aeroquiz_bot)) is an intelligent Telegram-based quiz platform that:
 
 - 📱 **Built for the Hangar Floor** - Telegram runs seamlessly on the iPads engineers already carry, enabling training **on-the-fly** between tasks without leaving the hangar
 - 🤖 **Leverages GenSpark Claw** to seamlessly connect with Telegram, intelligently handle user queries, and provide real-time conversational interactions
