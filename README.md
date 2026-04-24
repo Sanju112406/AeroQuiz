@@ -9,6 +9,10 @@
   <img src="https://img.shields.io/badge/Industry-Aviation%20MRO-green?style=for-the-badge" alt="Aviation MRO"/>
 </p>
 
+<p align="center">
+  <b>🤖 Try our Telegram Bot → <a href="https://t.me/aeroquiz_bot">@aeroquiz_bot</a></b>
+</p>
+
 ---
 
 ## 🎯 Problem Statement
