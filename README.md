@@ -15,12 +15,15 @@
 
 Singapore Airlines' aircraft maintenance engineers face a critical challenge: **rapidly upskilling probationary engineers** while ensuring they have deep knowledge of complex aircraft systems, safety protocols, and maintenance procedures. Traditional training methods are time-consuming and don't scale effectively.
 
+**The Mobile Workforce Challenge:** Unlike desk workers, aircraft engineers are stationed in **hangars working on planes** — they don't have access to laptops or desktop computers. However, every engineer carries an **iPad** loaded with aircraft manuals and company apps. This creates a unique opportunity for mobile-first training solutions.
+
 ---
 
 ## 💡 Our Solution
 
 **AeroQuiz** is an intelligent Telegram-based quiz platform that:
 
+- 📱 **Built for the Hangar Floor** - Telegram runs seamlessly on the iPads engineers already carry, enabling training **on-the-fly** between tasks without leaving the hangar
 - 🤖 **Leverages GenSpark Claw** to seamlessly connect with Telegram, intelligently handle user queries, and provide real-time conversational interactions
 - 🧠 **Powered by Claude Sonnet 4.5** for intelligent question generation, answer evaluation, and detailed explanations for incorrect responses
 - 📚 **RAG Pipeline** that ingests aircraft PDF manuals and technical documentation to generate contextually relevant questions
