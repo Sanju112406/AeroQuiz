@@ -1,0 +1,19 @@
+# Core
+anthropic==0.40.0
+python-dotenv==1.0.1
+
+# RAG / Vector Store
+chromadb==0.5.23
+sentence-transformers==3.3.1   # local embeddings (no API key needed)
+pypdf==5.1.0                   # PDF parsing
+
+# Telegram Bot
+python-telegram-bot==21.6
+
+# Web UI
+gradio>=5.0
+
+# Utilities
+pydantic==2.10.4
+rich==13.9.4                   # pretty CLI output
+tqdm==4.67.1                   # progress bars

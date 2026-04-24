@@ -1,0 +1,36 @@
+# Environment variables
+.env
+.env.local
+
+# Virtual environment
+.venv/
+venv/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Project specific
+data/
+logs/
+manuals/
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
