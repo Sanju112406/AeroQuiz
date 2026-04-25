@@ -13,6 +13,10 @@
   <b>🤖 Try our Telegram Bot → <a href="https://t.me/aeroquiz_bot">@aeroquiz_bot</a></b>
 </p>
 
+<p align="center">
+  <img src="assets/telegram-quiz.jpeg" alt="AeroQuiz Bot in Action" width="300"/>
+</p>
+
 ---
 
 ## 🎯 Problem Statement
@@ -214,6 +218,16 @@ AeroQuiz/
 - No public webhooks - polling-based architecture
 - API keys secured in `.env` (never committed)
 - Local data storage for scores and sessions
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="assets/telegram-quiz.jpeg" alt="Quiz Topic Selection" width="280"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="assets/telegram-leaderboard.jpeg" alt="Leaderboard View" width="280"/>
+</p>
 
 ---
 
